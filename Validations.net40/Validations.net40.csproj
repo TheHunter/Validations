@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45FB513E-B981-4C17-857C-141BA64FCD2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Validations</RootNamespace>
+    <AssemblyName>Validations</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Validations\Exceptions\NonUniqueOperationException.cs">
+      <Link>Exceptions\NonUniqueOperationException.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Exceptions\OnBuildingOperationException.cs">
+      <Link>Exceptions\OnBuildingOperationException.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Exceptions\OnBuildingValidatorException.cs">
+      <Link>Exceptions\OnBuildingValidatorException.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Exceptions\ValidationParameterException.cs">
+      <Link>Exceptions\ValidationParameterException.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Exceptions\WrongParameterException.cs">
+      <Link>Exceptions\WrongParameterException.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IComplexOperation.cs">
+      <Link>IComplexOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IComplexValidator.cs">
+      <Link>IComplexValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\ComplexOperation.cs">
+      <Link>Impl\ComplexOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\ComplexValidator.cs">
+      <Link>Impl\ComplexValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\OperationBase.cs">
+      <Link>Impl\OperationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\OperationResultInfo.cs">
+      <Link>Impl\OperationResultInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\ResultInfo.cs">
+      <Link>Impl\ResultInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\SimpleOperation.cs">
+      <Link>Impl\SimpleOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\SimpleValidator.cs">
+      <Link>Impl\SimpleValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\Impl\ValidatorInfo.cs">
+      <Link>Impl\ValidatorInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IOperation.cs">
+      <Link>IOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IOperationInfo.cs">
+      <Link>IOperationInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IOperationResult.cs">
+      <Link>IOperationResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IResultInfo.cs">
+      <Link>IResultInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\ISimpleOperation.cs">
+      <Link>ISimpleOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\ISimpleValidator.cs">
+      <Link>ISimpleValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\IValidatorInfo.cs">
+      <Link>IValidatorInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Validations\ResultState.cs">
+      <Link>ResultState.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

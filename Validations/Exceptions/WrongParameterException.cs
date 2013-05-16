@@ -11,8 +11,6 @@ namespace Repower.Common.Validations.Exceptions
     public class WrongParameterException
         : ArgumentException
     {
-        private string parameterName;
-
         /// <summary>
         /// 
         /// </summary>

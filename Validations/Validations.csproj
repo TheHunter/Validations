@@ -63,9 +63,6 @@
     <Compile Include="IValidatorInfo.cs" />
     <Compile Include="Impl\SimpleOperation.cs" />
     <Compile Include="Impl\OperationBase.cs" />
-    <Compile Include="Reflection\DynamicProperty.cs" />
-    <Compile Include="Reflection\DynamicSetter.cs" />
-    <Compile Include="Reflection\DelegateCompiler.cs" />
     <Compile Include="Impl\ResultInfo.cs" />
     <Compile Include="ResultState.cs" />
     <Compile Include="Impl\SimpleValidator.cs" />

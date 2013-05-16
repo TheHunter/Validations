@@ -17,15 +17,19 @@ namespace Validations.Impl
         /// <summary>
         /// 
         /// </summary>
-        private readonly HashSet<ComplexOperation<TLeft, TRight>> operations;
+        private readonly HashSet<IComplexOperation<TLeft, TRight>> operations;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="operations"></param>
-        public ComplexValidator(IEnumerable<ComplexOperation<TLeft, TRight>> operations)
+        public ComplexValidator(IEnumerable<IComplexOperation<TLeft, TRight>> operations)
             : base(string.Format("<{0}-{1}>", typeof(TLeft).Name, typeof(TRight).Name))
         {
+            if (operations == null || !operations.Any())
+                throw new OnBuildingValidatorException("operations",
+                                                       "The set of operations for complex validator cannot be empty or null.");
+
             var group = operations
                 .GroupBy(n => n.Target)
                 .Where(n => n.Count() > 1)
@@ -33,9 +37,9 @@ namespace Validations.Impl
                 ;
 
             if (group.Any())
-                throw new OnBuildingValidatorException("operations", "The operations must have an unique Target");
+                throw new NonUniqueOperationException(group, "Operations target for simple validators must be unique.");
 
-            this.operations = new HashSet<ComplexOperation<TLeft, TRight>>(operations);
+            this.operations = new HashSet<IComplexOperation<TLeft, TRight>>(operations);
         }
 
         /// <summary>
@@ -64,7 +68,7 @@ namespace Validations.Impl
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        private static IOperationResult Compute(ComplexOperation<TLeft, TRight> operation, TLeft left, TRight right)
+        private static IOperationResult Compute(IComplexOperation<TLeft, TRight> operation, TLeft left, TRight right)
         {
             ResultState state;
             Exception exception = null;
@@ -91,7 +95,7 @@ namespace Validations.Impl
         /// </summary>
         public override IEnumerable<IOperationInfo> Operations
         {
-            get { return this.operations.Select<ComplexOperation<TLeft, TRight>, IOperationInfo>(n => n); }
+            get { return this.operations.Select<IComplexOperation<TLeft, TRight>, IOperationInfo>(n => n); }
         }
 
         #region overriding object methods

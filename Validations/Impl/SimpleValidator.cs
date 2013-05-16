@@ -17,18 +17,18 @@ namespace Validations.Impl
         /// <summary>
         /// 
         /// </summary>
-        private readonly HashSet<SimpleOperation<TEntity>> operations;
+        private readonly HashSet<ISimpleOperation<TEntity>> operations;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="operations"></param>
-        public SimpleValidator(IEnumerable<SimpleOperation<TEntity>> operations)
+        public SimpleValidator(IEnumerable<ISimpleOperation<TEntity>> operations)
             : base(string.Format("<{0}>", typeof(TEntity).Name))
         {
             if (operations == null || !operations.Any())
                 throw new OnBuildingValidatorException("operations",
-                                                       "The set of operations for validator cannot be empty or null.");
+                                                       "The set of operations for simple validator cannot be empty or null.");
 
             var group = operations
                 .GroupBy(n => n.Target)
@@ -37,9 +37,9 @@ namespace Validations.Impl
                 ;
 
             if (group.Any())
-                throw new NonUniqueOperationException(group, "The operations must have an unique Target");
+                throw new NonUniqueOperationException(group, "Operations target for simple validators must be unique.");
 
-            this.operations = new HashSet<SimpleOperation<TEntity>>(operations);
+            this.operations = new HashSet<ISimpleOperation<TEntity>>(operations);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Validations.Impl
         /// <param name="operation"></param>
         /// <param name="instance"></param>
         /// <returns></returns>
-        private static IOperationResult Compute(SimpleOperation<TEntity> operation, TEntity instance)
+        private static IOperationResult Compute(ISimpleOperation<TEntity> operation, TEntity instance)
         {
             ResultState state;
             Exception exception = null;
@@ -88,7 +88,7 @@ namespace Validations.Impl
         /// </summary>
         public override IEnumerable<IOperationInfo> Operations
         {
-            get { return operations.Select<SimpleOperation<TEntity>, IOperationInfo>(n => n); }
+            get { return operations.Select<ISimpleOperation<TEntity>, IOperationInfo>(n => n); }
         }
 
         #region overriding object methods

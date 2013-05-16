@@ -46,13 +46,11 @@
   <ItemGroup>
     <Compile Include="CheckHelper.cs" />
     <Compile Include="ComplexValidatorTest.cs" />
-    <Compile Include="CustomValidators.cs" />
     <Compile Include="Domain\Agency.cs" />
     <Compile Include="Domain\CarContract.cs" />
     <Compile Include="Domain\HomeContract.cs" />
     <Compile Include="Domain\Salesman.cs" />
     <Compile Include="Domain\TradeContract.cs" />
-    <Compile Include="MockDataSource.cs" />
     <Compile Include="OperationsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleValidatorTest.cs" />

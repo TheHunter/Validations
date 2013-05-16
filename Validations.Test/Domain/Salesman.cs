@@ -15,9 +15,7 @@ namespace Validations.Test.Domain
         private HashSet<Agency> agencies;
         private HashSet<TradeContract> contracts;
 
-        public Salesman() { }
-
-        public Salesman(bool isTransient)
+        public Salesman()
         {
             this.contracts = new HashSet<TradeContract>();
             this.agents = new HashSet<Salesman>();
