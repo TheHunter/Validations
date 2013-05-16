@@ -7,27 +7,6 @@
       <FileName>Exceptions\ValidationParameterException.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Repower.Common.Validations.Reflection.DelegateCompiler" Collapsed="true">
-    <Position X="15.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAAAAAAEAAAAAA=</HashCode>
-      <FileName>Reflection\DelegateCompiler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Repower.Common.Validations.Reflection.DynamicProperty" Collapsed="true">
-    <Position X="19" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>RAAAAAAAAAIAAAAEgAAAAAAAAAAAAJAAAAACCAAAAAA=</HashCode>
-      <FileName>Reflection\DynamicProperty.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Repower.Common.Validations.Reflection.DynamicSetter&lt;T&gt;" Collapsed="true">
-    <Position X="17" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAABAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Reflection\DynamicSetter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Validations.Impl.ValidatorInfo">
     <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -102,7 +81,7 @@
   <Class Name="Repower.Common.Validations.Exceptions.WrongParameterException">
     <Position X="15.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\WrongParameterException.cs</FileName>
     </TypeIdentifier>
   </Class>
