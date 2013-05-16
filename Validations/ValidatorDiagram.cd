@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Repower.Common.Validations.Exceptions.ValidationParameterException">
+    <Position X="12.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ValidationParameterException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repower.Common.Validations.Reflection.DelegateCompiler" Collapsed="true">
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Reflection\DelegateCompiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repower.Common.Validations.Reflection.DynamicProperty" Collapsed="true">
+    <Position X="19" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAAAAAAAIAAAAEgAAAAAAAAAAAAJAAAAACCAAAAAA=</HashCode>
+      <FileName>Reflection\DynamicProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repower.Common.Validations.Reflection.DynamicSetter&lt;T&gt;" Collapsed="true">
+    <Position X="17" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAABAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Reflection\DynamicSetter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Validations.Impl.ValidatorInfo">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Impl\ValidatorInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.SimpleValidator&lt;TEntity&gt;">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAACAAgAEgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Impl\SimpleValidator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.ComplexValidator&lt;TLeft, TRight&gt;">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAACAAgAEgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Impl\ComplexValidator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.OperationBase">
+    <Position X="1.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEoAAAACAAAAAAAIAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Impl\OperationBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.SimpleOperation&lt;T&gt;">
+    <Position X="0.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Impl\SimpleOperation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.ComplexOperation&lt;TLeft, TRight&gt;">
+    <Position X="2.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Impl\ComplexOperation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.ResultInfo" Collapsed="true">
+    <Position X="13.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAACAAAABgIAEBAAAJAAAACA=</HashCode>
+      <FileName>Impl\ResultInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Validations.Impl.OperationResultInfo">
+    <Position X="13.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEIAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Impl\OperationResultInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repower.Common.Validations.Exceptions.NonUniqueOperationException">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Exceptions\NonUniqueOperationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repower.Common.Validations.Exceptions.WrongParameterException">
+    <Position X="15.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\WrongParameterException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repower.Common.Validations.Exceptions.OnBuildingValidatorException">
+    <Position X="17" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\OnBuildingValidatorException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repower.Common.Validations.Exceptions.OnBuildingOperationException">
+    <Position X="19.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\OnBuildingOperationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Validations.IResultInfo">
+    <Position X="11.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAJAAAAAA=</HashCode>
+      <FileName>IResultInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.IValidatorInfo">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IValidatorInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.IOperation">
+    <Position X="8.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOperation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.ISimpleOperation&lt;TSource&gt;">
+    <Position X="5.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>ISimpleOperation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.IComplexOperation&lt;TLeft, TRight&gt;">
+    <Position X="7.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>IComplexOperation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.IComplexValidator&lt;Tleft, TRight&gt;">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IComplexValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.ISimpleValidator&lt;TSource&gt;">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISimpleValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.IOperationInfo">
+    <Position X="6.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOperationInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Validations.IOperationResult">
+    <Position X="9.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOperationResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Validations.ResultState">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAgIAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>ResultState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

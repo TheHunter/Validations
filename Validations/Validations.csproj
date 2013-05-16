@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8783E2B-3D55-4C7B-A639-FB0ACC3BA847}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Validations</RootNamespace>
+    <AssemblyName>Validations</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Validations.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Validations.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\NonUniqueOperationException.cs" />
+    <Compile Include="Exceptions\OnBuildingOperationException.cs" />
+    <Compile Include="Exceptions\OnBuildingValidatorException.cs" />
+    <Compile Include="Exceptions\WrongParameterException.cs" />
+    <Compile Include="IComplexOperation.cs" />
+    <Compile Include="Impl\ComplexOperation.cs" />
+    <Compile Include="IComplexValidator.cs" />
+    <Compile Include="Impl\OperationResultInfo.cs" />
+    <Compile Include="IOperation.cs" />
+    <Compile Include="IOperationInfo.cs" />
+    <Compile Include="ISimpleOperation.cs" />
+    <Compile Include="ISimpleValidator.cs" />
+    <Compile Include="Exceptions\ValidationParameterException.cs" />
+    <Compile Include="IOperationResult.cs" />
+    <Compile Include="IResultInfo.cs" />
+    <Compile Include="IValidatorInfo.cs" />
+    <Compile Include="Impl\SimpleOperation.cs" />
+    <Compile Include="Impl\OperationBase.cs" />
+    <Compile Include="Reflection\DynamicProperty.cs" />
+    <Compile Include="Reflection\DynamicSetter.cs" />
+    <Compile Include="Reflection\DelegateCompiler.cs" />
+    <Compile Include="Impl\ResultInfo.cs" />
+    <Compile Include="ResultState.cs" />
+    <Compile Include="Impl\SimpleValidator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Impl\ComplexValidator.cs" />
+    <Compile Include="Impl\ValidatorInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ValidatorDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
