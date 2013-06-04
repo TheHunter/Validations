@@ -52,6 +52,7 @@
     <Compile Include="IComplexOperation.cs" />
     <Compile Include="Impl\ComplexOperation.cs" />
     <Compile Include="IComplexValidator.cs" />
+    <Compile Include="Impl\CustomOperationResult.cs" />
     <Compile Include="Impl\OperationResultInfo.cs" />
     <Compile Include="IOperation.cs" />
     <Compile Include="IOperationInfo.cs" />

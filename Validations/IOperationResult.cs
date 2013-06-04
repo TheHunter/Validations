@@ -8,7 +8,6 @@ namespace Validations
     public interface IOperationResult
         : IOperation, IResultInfo
     {
-        
     }
 
 }

@@ -84,6 +84,9 @@ namespace Validations.Test
         [ExpectedException(typeof(OnBuildingOperationException))]
         public void FailedMakeComplexOperationTest()
         {
+
+            var custom = new CustomOperationResult("my target", "my message", ResultState.RuntimeError);
+
             // target cannot be null or empty..
             var operation = new ComplexOperation<Salesman, Agency>(null, "descr", (salesman, agency) => salesman.Name != null && agency.Name != salesman.Name);
         }

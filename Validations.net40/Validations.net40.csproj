@@ -68,6 +68,9 @@
     <Compile Include="..\Validations\Impl\ComplexValidator.cs">
       <Link>Impl\ComplexValidator.cs</Link>
     </Compile>
+    <Compile Include="..\Validations\Impl\CustomOperationResult.cs">
+      <Link>Impl\CustomOperationResult.cs</Link>
+    </Compile>
     <Compile Include="..\Validations\Impl\OperationBase.cs">
       <Link>Impl\OperationBase.cs</Link>
     </Compile>
