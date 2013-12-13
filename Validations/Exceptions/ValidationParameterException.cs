@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Repower.Common.Validations.Exceptions
+namespace Validations.Exceptions
 {
     /// <summary>
     /// 

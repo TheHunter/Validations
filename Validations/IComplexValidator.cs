@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Repower.Common.Validations;
 
 namespace Validations
 {

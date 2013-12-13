@@ -62,6 +62,9 @@
     <Compile Include="..\Validations\IComplexValidator.cs">
       <Link>IComplexValidator.cs</Link>
     </Compile>
+    <Compile Include="..\Validations\Impl\AggregateValidator.cs">
+      <Link>Impl\AggregateValidator.cs</Link>
+    </Compile>
     <Compile Include="..\Validations\Impl\ComplexOperation.cs">
       <Link>Impl\ComplexOperation.cs</Link>
     </Compile>

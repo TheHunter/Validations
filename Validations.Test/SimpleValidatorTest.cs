@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Repower.Common.Validations;
-using Repower.Common.Validations.Exceptions;
+using Validations.Exceptions;
 using Validations.Impl;
 using Validations.Test.Domain;
 
@@ -110,6 +109,88 @@ namespace Validations.Test
             rules.Add(new SimpleOperation<Salesman>("name", salesman => salesman.Name == null));
             rules.Add(new SimpleOperation<Salesman>("name", salesman => salesman.Name.Equals(string.Empty)));
             ISimpleValidator<Salesman> validator = new SimpleValidator<Salesman>(rules);
+        }
+
+        [Test]
+        [Category("AgregateValidator")]
+        public void TestAgregateValidate()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 0));
+
+            ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
+
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
+            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+
+            ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
+
+            CarContract car = new CarContract();
+            car.Price = 1500;
+            car.BrandName = "Porsche";
+
+            var res = carValidator.Validate(car);
+            Assert.IsTrue(res.All(n => n.State == ResultState.Successfully));
+        }
+
+
+        [Test]
+        [Category("AgregateValidator")]
+        [ExpectedException(typeof(WrongParameterException))]
+        public void FailedAgregateValidate()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 0));
+
+            ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
+
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
+            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+
+            ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
+
+            var res = carValidator.Validate(null);
+            Assert.IsTrue(res.All(n => n.State == ResultState.Successfully));
+        }
+
+        [Test]
+        [Category("AgregateValidator")]
+        public void AgregateValidate2()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+
+            ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
+
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
+            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+
+            ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
+
+            CarContract car = new CarContract {Price = 55000, BrandName = "Porsche"};
+
+            var res = carValidator.Validate(car);
+            Assert.IsTrue(res.Any(n => n.State != ResultState.Successfully));
+        }
+
+        [Test]
+        [Category("AgregateValidator")]
+        public void AgregateValidate3()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+
+            ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
+
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
+            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+
+            ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
+
+            CarContract car = new CarContract { Price = 55000, BrandName = null };
+
+            var res = carValidator.Validate(car);
+            Assert.IsTrue(res.All(n => n.State == ResultState.Unsuccessfully));
         }
     }
 }

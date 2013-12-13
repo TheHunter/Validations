@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Repower.Common.Validations;
-using Repower.Common.Validations.Exceptions;
+using Validations.Exceptions;
 
 namespace Validations.Impl
 {
@@ -47,7 +46,7 @@ namespace Validations.Impl
         /// </summary>
         /// <param name="instance"></param>
         /// <returns>returns the result of validation.</returns>
-        public IEnumerable<IOperationResult> Validate(TEntity instance)
+        public virtual IEnumerable<IOperationResult> Validate(TEntity instance)
         {
             if (instance == null)
                 throw new ValidationParameterException("Instance to evaluate cannot be null.");
@@ -99,10 +98,12 @@ namespace Validations.Impl
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (obj != null && obj is SimpleValidator<TEntity>)
-            {
+            if (obj == null)
+                return false;
+
+            if (obj is SimpleValidator<TEntity>)
                 return this.GetHashCode() == obj.GetHashCode();
-            }
+            
             return false;
         }
 

@@ -50,6 +50,7 @@
     <Compile Include="Exceptions\OnBuildingValidatorException.cs" />
     <Compile Include="Exceptions\WrongParameterException.cs" />
     <Compile Include="IComplexOperation.cs" />
+    <Compile Include="Impl\AggregateValidator.cs" />
     <Compile Include="Impl\ComplexOperation.cs" />
     <Compile Include="IComplexValidator.cs" />
     <Compile Include="Impl\CustomOperationResult.cs" />

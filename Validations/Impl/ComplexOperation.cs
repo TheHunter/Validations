@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Repower.Common.Validations.Exceptions;
+using Validations.Exceptions;
 
 namespace Validations.Impl
 {

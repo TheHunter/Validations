@@ -1,6 +1,4 @@
-﻿using Repower.Common.Validations;
-
-namespace Validations
+﻿namespace Validations
 {
     /// <summary>
     /// 

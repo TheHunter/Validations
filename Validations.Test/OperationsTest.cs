@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Repower.Common.Validations.Exceptions;
+using Validations.Exceptions;
 using Validations.Impl;
 using Validations.Test.Domain;
 

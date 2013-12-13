@@ -1,8 +1,8 @@
-﻿using Repower.Common.Validations.Exceptions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Validations.Exceptions;
 
 namespace Validations.Impl
 {
@@ -10,13 +10,14 @@ namespace Validations.Impl
     /// A custom operation result that can be used by validator users.
     /// </summary>
     public class CustomOperationResult
-        : OperationResultInfo, IOperationResult
+        : OperationResultInfo
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="target"></param>
         /// <param name="message"></param>
+        /// <param name="ex"></param>
         public CustomOperationResult(string target, string message, Exception ex)
             :base(target, message)
         {

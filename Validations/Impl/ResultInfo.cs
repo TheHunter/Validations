@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Repower.Common.Validations;
-using Repower.Common.Validations.Exceptions;
+using Validations.Exceptions;
 
 namespace Validations.Impl
 {
