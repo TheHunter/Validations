@@ -113,7 +113,7 @@ namespace Validations.Impl
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode() * 7 - typeof(TEntity).GetHashCode() ;
+            return 7 * (typeof(TEntity).GetHashCode());
         }
 
         /// <summary>

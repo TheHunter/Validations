@@ -125,9 +125,7 @@ namespace Validations.Test
 
             ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
 
-            CarContract car = new CarContract();
-            car.Price = 1500;
-            car.BrandName = "Porsche";
+            CarContract car = new CarContract {Price = 1500, BrandName = "Porsche"};
 
             var res = carValidator.Validate(car);
             Assert.IsTrue(res.All(n => n.State == ResultState.Successfully));
@@ -191,6 +189,86 @@ namespace Validations.Test
 
             var res = carValidator.Validate(car);
             Assert.IsTrue(res.All(n => n.State == ResultState.Unsuccessfully));
+        }
+
+
+        [Test]
+        [Category("InferredValidator")]
+        public void InferredValidatorTest1()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+
+            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crtRules);
+
+            CarContract car = new CarContract { Price = 70001, BrandName = null };
+
+            var res = crtValidator.Validate(car);
+            Assert.IsTrue(res.All(n => n.State == ResultState.Successfully));
+
+        }
+
+        [Test]
+        [Category("InferredValidator")]
+        [ExpectedException(typeof(ValidationParameterException))]
+        public void FailedInferredValidator1()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+
+            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crtRules);
+
+            var res = crtValidator.Validate(null);
+            Assert.IsTrue(res.All(n => n.State == ResultState.Successfully));
+
+        }
+
+        [Test]
+        [Category("InferredValidator")]
+        [ExpectedException(typeof(OnBuildingValidatorException))]
+        public void FailedInferredValidator2()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+
+            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>((List<ISimpleOperation<TradeContract>>)null);
+        }
+
+        [Test]
+        [Category("InferredValidator")]
+        [ExpectedException(typeof(OnBuildingValidatorException))]
+        public void FailedInferredValidator3()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crtRules);
+        }
+
+
+        [Test]
+        [Category("InferredValidator")]
+        [ExpectedException(typeof(OnBuildingValidatorException))]
+        public void FailedInferredValidator4()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+
+            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>((ISimpleValidator<TradeContract>)null);
+        }
+
+        [Test]
+        [Category("InferredValidator")]
+        public void InferredValidator1()
+        {
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            SimpleValidator<TradeContract> crt = new SimpleValidator<TradeContract>(crtRules);
+
+            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crt);
+
+            CarContract car = new CarContract { Price = 70001, BrandName = null };
+
+            var res = crtValidator.Validate(car);
+            Assert.IsTrue(res.All(n => n.State == ResultState.Successfully));
         }
     }
 }
