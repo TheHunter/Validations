@@ -31,12 +31,14 @@ namespace Validations.Test
         [Description("Executes a simple validator, and gets successfully results only.")]
         public void ValidateTest1()
         {
-            Salesman cons = new Salesman();
-            cons.Name = "Juan";
-            cons.Surname = "Rios";
-            cons.IdentityCode = 150;
-            cons.Email = "Juan_Rios@gmail.com";
-            cons.AddContract(new CarContract() { BrandName = "Audi", Description = "description" });
+            Salesman cons = new Salesman
+                {
+                    Name = "Juan",
+                    Surname = "Rios",
+                    IdentityCode = 150,
+                    Email = "Juan_Rios@gmail.com"
+                };
+            cons.AddContract(new CarContract { BrandName = "Audi", Description = "description" });
 
             var result = this.DefaultValidator.Validate(cons);
             Assert.IsTrue(result.All(n => n.State == ResultState.Successfully));
@@ -47,11 +49,7 @@ namespace Validations.Test
         [Description("Executes a simple validator, and gets unsuccessfully results only.")]
         public void ValidateTest2()
         {
-            Salesman cons = new Salesman();
-            cons.Name = "";
-            cons.Surname = "lol";
-            cons.IdentityCode = 99;
-            cons.Email = "Juan_Rios_gmail.com";
+            Salesman cons = new Salesman {Name = "", Surname = "lol", IdentityCode = 99, Email = "Juan_Rios_gmail.com"};
 
             var result = this.DefaultValidator.Validate(cons);
             Assert.IsTrue(result.All(n => n.State == ResultState.Unsuccessfully));
@@ -62,11 +60,13 @@ namespace Validations.Test
         [Description("Executes a simple validator, and gets a result operation with RuntimeError state.")]
         public void ValidateTest3()
         {
-            Salesman cons = new Salesman();
-            cons.Name = "";
-            cons.Surname = null;
-            cons.IdentityCode = 70;
-            cons.Email = "chico_herbal-hotmail.com";
+            Salesman cons = new Salesman
+                {
+                    Name = "",
+                    Surname = null,
+                    IdentityCode = 70,
+                    Email = "chico_herbal-hotmail.com"
+                };
 
             var result = this.DefaultValidator.Validate(cons);
             Assert.IsTrue(result.Any(n => n.State == ResultState.RuntimeError));
@@ -87,7 +87,7 @@ namespace Validations.Test
         [ExpectedException(typeof(OnBuildingValidatorException))]
         public void FailedValidateTest2()
         {
-            ISimpleValidator<Salesman> validator = new SimpleValidator<Salesman>(null);
+            new SimpleValidator<Salesman>(null);
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace Validations.Test
         [ExpectedException(typeof(OnBuildingValidatorException))]
         public void FailedValidateTest3()
         {
-            ISimpleValidator<Salesman> validator = new SimpleValidator<Salesman>(new List<ISimpleOperation<Salesman>>());
+            new SimpleValidator<Salesman>(new List<ISimpleOperation<Salesman>>());
         }
 
         [Test]
@@ -105,23 +105,29 @@ namespace Validations.Test
         [ExpectedException(typeof(NonUniqueOperationException))]
         public void FailedValidateTest4()
         {
-            var rules = new List<ISimpleOperation<Salesman>>();
-            rules.Add(new SimpleOperation<Salesman>("name", salesman => salesman.Name == null));
-            rules.Add(new SimpleOperation<Salesman>("name", salesman => salesman.Name.Equals(string.Empty)));
-            ISimpleValidator<Salesman> validator = new SimpleValidator<Salesman>(rules);
+            var rules = new List<ISimpleOperation<Salesman>>
+                {
+                    new SimpleOperation<Salesman>("name", salesman => salesman.Name == null),
+                    new SimpleOperation<Salesman>("name", salesman => salesman.Name.Equals(string.Empty))
+                };
+            new SimpleValidator<Salesman>(rules);
         }
 
         [Test]
         [Category("AgregateValidator")]
         public void TestAgregateValidate()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 0));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 0)
+                };
 
             ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
 
-            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
-            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>
+                {
+                    new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null)
+                };
 
             ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
 
@@ -137,13 +143,17 @@ namespace Validations.Test
         [ExpectedException(typeof(WrongParameterException))]
         public void FailedAgregateValidate()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 0));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 0)
+                };
 
             ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
 
-            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
-            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>
+                {
+                    new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null)
+                };
 
             ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
 
@@ -155,13 +165,17 @@ namespace Validations.Test
         [Category("AgregateValidator")]
         public void AgregateValidate2()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000)
+                };
 
             ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
 
-            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
-            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>
+                {
+                    new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null)
+                };
 
             ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
 
@@ -175,13 +189,17 @@ namespace Validations.Test
         [Category("AgregateValidator")]
         public void AgregateValidate3()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000)
+                };
 
             ISimpleValidator<TradeContract> crtValidator = new SimpleValidator<TradeContract>(crtRules);
 
-            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>();
-            carRules.Add(new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null));
+            List<ISimpleOperation<CarContract>> carRules = new List<ISimpleOperation<CarContract>>
+                {
+                    new SimpleOperation<CarContract>("BrandName", contract => contract.BrandName != null)
+                };
 
             ISimpleValidator<CarContract> carValidator = new AggregateValidator<CarContract, TradeContract>(carRules, crtValidator);
 
@@ -196,8 +214,10 @@ namespace Validations.Test
         [Category("InferredValidator")]
         public void InferredValidatorTest1()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000)
+                };
 
             ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crtRules);
 
@@ -213,8 +233,10 @@ namespace Validations.Test
         [ExpectedException(typeof(ValidationParameterException))]
         public void FailedInferredValidator1()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000)
+                };
 
             ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crtRules);
 
@@ -228,10 +250,10 @@ namespace Validations.Test
         [ExpectedException(typeof(OnBuildingValidatorException))]
         public void FailedInferredValidator2()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            //List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
+            //crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
 
-            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>((List<ISimpleOperation<TradeContract>>)null);
+            new InferredValidator<CarContract, TradeContract>((List<ISimpleOperation<TradeContract>>)null);
         }
 
         [Test]
@@ -240,7 +262,7 @@ namespace Validations.Test
         public void FailedInferredValidator3()
         {
             List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crtRules);
+            new InferredValidator<CarContract, TradeContract>(crtRules);
         }
 
 
@@ -249,18 +271,22 @@ namespace Validations.Test
         [ExpectedException(typeof(OnBuildingValidatorException))]
         public void FailedInferredValidator4()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            //List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+            //    {
+            //        new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000)
+            //    };
 
-            ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>((ISimpleValidator<TradeContract>)null);
+            new InferredValidator<CarContract, TradeContract>((ISimpleValidator<TradeContract>)null);
         }
 
         [Test]
         [Category("InferredValidator")]
         public void InferredValidator1()
         {
-            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>();
-            crtRules.Add(new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000));
+            List<ISimpleOperation<TradeContract>> crtRules = new List<ISimpleOperation<TradeContract>>
+                {
+                    new SimpleOperation<TradeContract>("Price", contract => contract.Price > 70000)
+                };
             SimpleValidator<TradeContract> crt = new SimpleValidator<TradeContract>(crtRules);
 
             ISimpleValidator<CarContract> crtValidator = new InferredValidator<CarContract, TradeContract>(crt);

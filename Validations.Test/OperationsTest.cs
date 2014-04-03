@@ -68,6 +68,15 @@ namespace Validations.Test
             
         }
 
+        [Test]
+        [Category("MakeComplexOperation")]
+        [ExpectedException(typeof(OnBuildingOperationException))]
+        public void WrongCustomOperationResultTest()
+        {
+            // runtimeError state cannot be passed into constructor,
+            // you need to pass an exception if you intend to indicate an exception on constructor overloading.
+            new CustomOperationResult("my target", "my message", ResultState.RuntimeError);
+        }
 
         [Test]
         [Category("MakeSimpleOperation")]
@@ -75,20 +84,8 @@ namespace Validations.Test
         public void FailedMakeSimpleOperationTest()
         {
             // target cannot be null or empty..
-            var operation = new SimpleOperation<Salesman>(null, "descr", salesman => salesman.Name != null);
+            new SimpleOperation<Salesman>(null, "descr", salesman => salesman.Name != null);
         }
 
-
-        [Test]
-        [Category("MakeComplexOperation")]
-        [ExpectedException(typeof(OnBuildingOperationException))]
-        public void FailedMakeComplexOperationTest()
-        {
-
-            var custom = new CustomOperationResult("my target", "my message", ResultState.RuntimeError);
-
-            // target cannot be null or empty..
-            var operation = new ComplexOperation<Salesman, Agency>(null, "descr", (salesman, agency) => salesman.Name != null && agency.Name != salesman.Name);
-        }
     }
 }

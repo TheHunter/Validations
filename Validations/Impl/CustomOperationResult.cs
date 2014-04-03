@@ -36,7 +36,7 @@ namespace Validations.Impl
             : base(target, message)
         {
             if (state == ResultState.RuntimeError)
-                throw new WrongParameterException("state", "The operation result cannot be set to RuntimeError, in this case It would be used the appropriate constructor.");
+                throw new OnBuildingOperationException("state", "The operation result cannot be set to RuntimeError, in this case It would be used the appropriate constructor.");
 
             this.State = state;
         }
