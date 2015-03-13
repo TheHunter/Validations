@@ -3,20 +3,20 @@
 namespace Validations
 {
     /// <summary>
-    /// 
+    /// Interface IComplexValidator
     /// </summary>
-    /// <typeparam name="Tleft"></typeparam>
-    /// <typeparam name="TRight"></typeparam>
-    public interface IComplexValidator<Tleft, TRight>
+    /// <typeparam name="TLeft">The type of the TLeft.</typeparam>
+    /// <typeparam name="TRight">The type of the t right.</typeparam>
+    public interface IComplexValidator<in TLeft, in TRight>
         : IValidatorInfo
     {
         /// <summary>
-        /// 
+        /// Validates the specified left.
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        IEnumerable<IOperationResult> Validate(Tleft left, TRight right);
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>IEnumerable&lt;IOperationResult&gt;.</returns>
+        IEnumerable<IOperationResult> Validate(TLeft left, TRight right);
     }
 
 }

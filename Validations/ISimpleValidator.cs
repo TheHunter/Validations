@@ -3,17 +3,18 @@
 namespace Validations
 {
     /// <summary>
-    /// 
+    /// Interface ISimpleValidator
     /// </summary>
-    /// <typeparam name="TSource"></typeparam>
-    public interface ISimpleValidator<TSource>
+    /// <typeparam name="TSource">The type of the t source.</typeparam>
+    public interface ISimpleValidator<in TSource>
         : IValidatorInfo
     {
+
         /// <summary>
-        /// Validate the given argument using the current set of expressions managed by the calling validator.
+        /// Validates the specified instance.
         /// </summary>
-        /// <param name="instance"></param>
-        /// <returns></returns>
+        /// <param name="instance">The instance.</param>
+        /// <returns>IEnumerable&lt;IOperationResult&gt;.</returns>
         IEnumerable<IOperationResult> Validate(TSource instance);
     }
 

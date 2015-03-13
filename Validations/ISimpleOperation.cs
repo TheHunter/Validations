@@ -3,15 +3,17 @@
 namespace Validations
 {
     /// <summary>
-    /// 
+    /// Interface ISimpleOperation
     /// </summary>
-    public interface ISimpleOperation<TSource>
+    /// <typeparam name="TSource">The type of the t source.</typeparam>
+    public interface ISimpleOperation<in TSource>
         : IOperationInfo
         where TSource : class 
     {
         /// <summary>
-        /// 
+        /// Gets the verifier.
         /// </summary>
+        /// <value>The verifier.</value>
         Func<TSource, bool> Verifier { get; }
     }
 }

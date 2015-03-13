@@ -6,28 +6,35 @@ using Validations.Exceptions;
 namespace Validations.Impl
 {
     /// <summary>
-    /// 
+    /// Class ComplexValidator.
     /// </summary>
+    /// <typeparam name="TLeft">The type of the t left.</typeparam>
+    /// <typeparam name="TRight">The type of the t right.</typeparam>
     public class ComplexValidator<TLeft, TRight>
-        :  ValidatorInfo, IComplexValidator<TLeft, TRight>
+        : ValidatorInfo, IComplexValidator<TLeft, TRight>
         where TLeft : class
         where TRight : class
     {
         /// <summary>
-        /// 
+        /// The operations
         /// </summary>
         private readonly HashSet<IComplexOperation<TLeft, TRight>> operations;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ComplexValidator{TLeft, TRight}"/> class.
         /// </summary>
-        /// <param name="operations"></param>
+        /// <param name="operations">The operations.</param>
+        /// <exception cref="Validations.Exceptions.OnBuildingValidatorException">operations;The set of operations for complex validator cannot be empty or null.</exception>
+        /// <exception cref="Validations.Exceptions.NonUniqueOperationException">Operations target for simple validators must be unique.</exception>
         public ComplexValidator(IEnumerable<IComplexOperation<TLeft, TRight>> operations)
             : base(string.Format("<{0}-{1}>", typeof(TLeft).Name, typeof(TRight).Name))
         {
             if (operations == null || !operations.Any())
-                throw new OnBuildingValidatorException("operations",
-                                                       "The set of operations for complex validator cannot be empty or null.");
+            {
+                throw new OnBuildingValidatorException(
+                    "operations",
+                    "The set of operations for complex validator cannot be empty or null.");
+            }
 
             var group = operations
                 .GroupBy(n => n.Target)
@@ -42,15 +49,25 @@ namespace Validations.Impl
         }
 
         /// <summary>
-        /// 
+        /// Gets the operations.
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <value>The operations.</value>
+        public override IEnumerable<IOperationInfo> Operations
+        {
+            get { return this.operations.Select<IComplexOperation<TLeft, TRight>, IOperationInfo>(n => n); }
+        }
+
+        /// <summary>
+        /// Validates the specified left.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>IEnumerable&lt;IOperationResult&gt;.</returns>
+        /// <exception cref="Validations.Exceptions.ValidationParameterException">All instances to validate must be referenced.</exception>
         public IEnumerable<IOperationResult> Validate(TLeft left, TRight right)
         {
             List<string> col = new List<string>();
-            
+
             if (left == null) col.Add("left");
             if (right == null) col.Add("right");
 
@@ -61,12 +78,12 @@ namespace Validations.Impl
         }
 
         /// <summary>
-        /// 
+        /// Computes the specified operation.
         /// </summary>
-        /// <param name="operation"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <param name="operation">The operation.</param>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>IOperationResult.</returns>
         private static IOperationResult Compute(IComplexOperation<TLeft, TRight> operation, TLeft left, TRight right)
         {
             ResultState state;
@@ -87,14 +104,6 @@ namespace Validations.Impl
                 message = ResultInfo.GetDefaultMessage(state);
             }
             return new OperationResultInfo(operation.Target, message) { State = state, RuntimeException = exception };
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public override IEnumerable<IOperationInfo> Operations
-        {
-            get { return this.operations.Select<IComplexOperation<TLeft, TRight>, IOperationInfo>(n => n); }
         }
 
         #region overriding object methods

@@ -156,7 +156,7 @@
       <FileName>IComplexOperation.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Validations.IComplexValidator&lt;Tleft, TRight&gt;">
+  <Interface Name="Validations.IComplexValidator&lt;TLeft, TRight&gt;">
     <Position X="17" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>

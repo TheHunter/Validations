@@ -1,13 +1,14 @@
 ﻿namespace Validations
 {
     /// <summary>
-    /// 
+    /// The Validations namespace.
     /// </summary>
     public interface IOperation
     {
         /// <summary>
-        /// A label which identifies the calling operation.
+        /// Gets the label which identifies the calling operation.
         /// </summary>
+        /// <value>The target.</value>
         string Target { get; }
     }
 }

@@ -13,25 +13,25 @@ namespace Validations.Impl
         : OperationResultInfo
     {
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="CustomOperationResult"/> class.
         /// </summary>
-        /// <param name="target"></param>
-        /// <param name="message"></param>
-        /// <param name="ex"></param>
+        /// <param name="target">The target.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="ex">The ex.</param>
         public CustomOperationResult(string target, string message, Exception ex)
-            :base(target, message)
+            : base(target, message)
         {
             this.RuntimeException = ex;
             this.State = ResultState.RuntimeError;
         }
 
         /// <summary>
-        /// Instance a new operation result with the given parameters.
+        /// Initializes a new instance of the <see cref="CustomOperationResult"/> class.
         /// </summary>
-        /// <exception cref="WrongParameterException">throws an exception if the state is set to RuntimeError.</exception>
-        /// <param name="target"></param>
-        /// <param name="message"></param>
-        /// <param name="state"></param>
+        /// <param name="target">The target.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="state">The state.</param>
+        /// <exception cref="OnBuildingOperationException">state;The operation result cannot be set to RuntimeError, in this case It would be used the appropriate constructor.</exception>
         public CustomOperationResult(string target, string message, ResultState state)
             : base(target, message)
         {
