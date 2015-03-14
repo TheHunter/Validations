@@ -14,6 +14,7 @@ namespace Validations.Impl
     {
         
         private readonly Func<T, bool> verifier;
+        private readonly string stringExpression;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimpleOperation{T}"/> class.
@@ -39,6 +40,7 @@ namespace Validations.Impl
                 throw new OnBuildingOperationException("verifier", "The expression which serves for validating instance cannot be null.");
 
             this.verifier = verifier.Compile();
+            this.stringExpression = verifier.Body.ToString();
         }
 
         /// <summary>
@@ -48,6 +50,15 @@ namespace Validations.Impl
         public Func<T, bool> Verifier
         {
             get { return this.verifier; }
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        public override string ToString()
+        {
+            return string.Format("{0} - Expression: {1}", base.ToString(), this.stringExpression);
         }
     }
 }

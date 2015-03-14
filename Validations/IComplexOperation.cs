@@ -7,7 +7,7 @@ namespace Validations
     /// </summary>
     /// <typeparam name="TLeft">The type of the t left.</typeparam>
     /// <typeparam name="TRight">The type of the t right.</typeparam>
-    public interface IComplexOperation<in TLeft, in TRight>
+    public interface IComplexOperation<TLeft, TRight>
         : IOperationInfo
         where TLeft : class
         where TRight : class

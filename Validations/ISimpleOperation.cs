@@ -6,7 +6,7 @@ namespace Validations
     /// Interface ISimpleOperation
     /// </summary>
     /// <typeparam name="TSource">The type of the t source.</typeparam>
-    public interface ISimpleOperation<in TSource>
+    public interface ISimpleOperation<TSource>
         : IOperationInfo
         where TSource : class 
     {

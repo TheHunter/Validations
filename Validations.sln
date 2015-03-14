@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validations", "Validations\Validations.csproj", "{B8783E2B-3D55-4C7B-A639-FB0ACC3BA847}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validations.Test", "Validations.Test\Validations.Test.csproj", "{93B47D59-E21D-40A6-AE17-6255140F2C1B}"
@@ -13,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{08F6FF
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validations.net40", "Validations.net40\Validations.net40.csproj", "{45FB513E-B981-4C17-857C-141BA64FCD2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37494A83-9CC5-4350-A9D1-7D46394F79D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8CD165EA-2748-45AE-8C62-52FB8F5484BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,5 +63,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8783E2B-3D55-4C7B-A639-FB0ACC3BA847} = {37494A83-9CC5-4350-A9D1-7D46394F79D6}
+		{93B47D59-E21D-40A6-AE17-6255140F2C1B} = {8CD165EA-2748-45AE-8C62-52FB8F5484BB}
+		{45FB513E-B981-4C17-857C-141BA64FCD2A} = {37494A83-9CC5-4350-A9D1-7D46394F79D6}
 	EndGlobalSection
 EndGlobal

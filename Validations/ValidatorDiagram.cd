@@ -25,7 +25,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Validations.Impl.OperationBase">
-    <Position X="4" Y="12.25" Width="1.5" />
+    <Position X="4" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEoAAAACAAAAAAAIAAAAAAAAAAAAQ=</HashCode>
       <FileName>Impl\OperationBase.cs</FileName>
@@ -33,7 +33,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Validations.Impl.SimpleOperation&lt;T&gt;">
-    <Position X="3" Y="16.5" Width="1.5" />
+    <Position X="3" Y="19" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Impl\SimpleOperation.cs</FileName>
@@ -41,7 +41,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Validations.Impl.ComplexOperation&lt;TLeft, TRight&gt;">
-    <Position X="5" Y="16.5" Width="1.5" />
+    <Position X="5" Y="19" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Impl\ComplexOperation.cs</FileName>
@@ -49,15 +49,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Validations.Impl.ResultInfo">
-    <Position X="17" Y="12" Width="1.5" />
+    <Position X="17" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAACAAAABgIAEBAAAJAAAACA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAACAAAABAIAEBAAAJAAAACA=</HashCode>
       <FileName>Impl\ResultInfo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Validations.Impl.OperationResultInfo">
-    <Position X="17" Y="16.5" Width="1.5" />
+    <Position X="17" Y="19" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEIAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Impl\OperationResultInfo.cs</FileName>
@@ -65,35 +65,35 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Validations.Exceptions.NonUniqueOperationException">
-    <Position X="21.25" Y="16" Width="1.5" />
+    <Position X="21.25" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
       <FileName>Exceptions\NonUniqueOperationException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Validations.Exceptions.OnBuildingOperationException">
-    <Position X="25.75" Y="16" Width="1.5" />
+    <Position X="25.75" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\OnBuildingOperationException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Validations.Exceptions.OnBuildingValidatorException">
-    <Position X="28" Y="16" Width="1.5" />
+    <Position X="28" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\OnBuildingValidatorException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Validations.Exceptions.ValidationParameterException">
-    <Position X="23.5" Y="16" Width="1.5" />
+    <Position X="23.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\ValidationParameterException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Validations.Exceptions.WrongParameterException">
-    <Position X="24.5" Y="13.75" Width="1.5" />
+    <Position X="24.5" Y="16.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\WrongParameterException.cs</FileName>
@@ -107,7 +107,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Validations.Impl.CustomOperationResult">
-    <Position X="17" Y="19.75" Width="1.5" />
+    <Position X="17" Y="22.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Impl\CustomOperationResult.cs</FileName>
@@ -122,7 +122,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Validations.IResultInfo">
-    <Position X="13.5" Y="12" Width="1.5" />
+    <Position X="13.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAJAAAAAA=</HashCode>
       <FileName>IResultInfo.cs</FileName>
@@ -136,21 +136,21 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Validations.IOperation">
-    <Position X="10.5" Y="12" Width="1.5" />
+    <Position X="10.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IOperation.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Validations.ISimpleOperation&lt;TSource&gt;">
-    <Position X="7.75" Y="17.5" Width="1.5" />
+    <Position X="7.75" Y="20" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>ISimpleOperation.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Validations.IComplexOperation&lt;TLeft, TRight&gt;">
-    <Position X="9.75" Y="17.5" Width="1.5" />
+    <Position X="9.75" Y="20" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>IComplexOperation.cs</FileName>
@@ -171,14 +171,14 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Validations.IOperationInfo">
-    <Position X="8.75" Y="15" Width="1.5" />
+    <Position X="8.75" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IOperationInfo.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Validations.IOperationResult">
-    <Position X="12" Y="15" Width="1.5" />
+    <Position X="12" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IOperationResult.cs</FileName>
